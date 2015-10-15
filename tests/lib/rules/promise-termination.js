@@ -27,6 +27,9 @@ ruleTester.run("promise-termination", rule, {
             code: "queryDatabase().then(function () { }).done();",
         },
         {
+            code: "function x() { return; }",
+        },
+        {
             code: "function x() { return queryDatabase().then(function () { }); };",
         },
     ],
