@@ -1,36 +1,31 @@
-# Disallow bare modifiers in React classNames. (bem-no-bare-modifier)
+# Disallow bare modifiers in React classNames (bem-no-bare-modifier)
 
-Please describe the origin of the rule here.
+In BEM, modifiers are used to modify a BEM block or BEM element.
+It does not make sense to use it on its own,
+but in the past, it has been (ab)used, probably to save typing.
+This may potentially lead to className clashes.
 
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to detect JSX className attributes.
 
 The following patterns are considered warnings:
 
 ```js
-
-// fill me in
-
+<div className='--icon'></div>
 ```
 
 The following patterns are not warnings:
 
 ```js
-
-// fill me in
-
+<div className='tw-tag --selected'></div>
 ```
 
-### Options
-
-If there are any options, describe them here. Otherwise, delete this section.
-
-## When Not To Use It
-
-Give a short description of when it would be appropriate to turn off this rule.
+```js
+<div className='tw-list__item --selected'></div>
+```
 
 ## Further Reading
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+* https://en.bem.info/method/naming-convention/
