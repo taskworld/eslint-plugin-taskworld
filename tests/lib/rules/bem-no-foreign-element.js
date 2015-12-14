@@ -46,6 +46,20 @@ ruleTester.run("bem-no-foreign-element", rule, {
                 message: "'ProjectList.react.js' may only use BEM class 'tw-project-list'. 'tw-tasklist-narrow' should be used in 'TasklistNarrow.react.js'.",
             }],
             parser: "babel-eslint",
-        }
+        },
+        {
+            code: "var fail = <div><span className='tw-icon-task'></span></div>;",
+            errors: [{
+                message: "Please don’t use tw-icon-* classes; use `<Icon name='task' />` instead.",
+            }],
+            parser: "babel-eslint",
+        },
+        {
+            code: "var fail = <div><i className='tw-icon-workspace'></i></div>;",
+            errors: [{
+                message: "Please don’t use tw-icon-* classes; use `<Icon name='workspace' />` instead.",
+            }],
+            parser: "babel-eslint",
+        },
     ]
 });
